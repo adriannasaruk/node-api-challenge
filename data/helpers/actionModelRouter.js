@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
         res.status(200).json(item)
     })
     .catch(err=> {
-        res.status(500).json("Error retrieving the projects")
+        res.status(500).json("Error retrieving the actions")
     })
 })
 
@@ -23,7 +23,7 @@ router.get("/:id", (req, res) => {
         }
     })
     .catch(err=> {
-        res.status(500).json("Error retrieving the desired project")
+        res.status(500).json("Error retrieving the desired action")
     })
 })
 
@@ -60,7 +60,7 @@ router.put("/:id", (req, res) => {
         
     })
     .catch(err=> {
-        res.status(500).json("Error updating the project")
+        res.status(500).json("Error updating the action")
     })
 })
 
@@ -68,13 +68,13 @@ router.delete("/:id", (req, res) => {
     Action.remove(req.params.id)
     .then(count => {
         if(count >0 ) {
-            res.status(200).json({message: "The project is deleted"})
+            res.status(200).json({message: "The action is deleted"})
         } else{
             res.status(400).json({errorMessage: "The ID was not found"})
         }
     })
     .catch(err=> {
-        res.status(500).json("Error deleting the desired project")
+        res.status(500).json("Error deleting the desired action")
     })
 })
 
